@@ -1,0 +1,21 @@
+{
+  "name": "automacao-testes-login",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "playwright:test": "playwright test",
+    "playwright:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "cypress": "^15.21.2"
+  },
+  "description": "Projeto acadêmico para a disciplina Teste de Software. As três ferramentas automatizam o mesmo formulário de login e verificam dois cenários: credenciais válidas e senha incorreta.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

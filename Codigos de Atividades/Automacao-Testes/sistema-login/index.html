@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Login - Teste de Software</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+      font-family: Arial, sans-serif; background: linear-gradient(135deg,#e8eefc,#d9f3ee); }
+    .card { width: min(92%, 390px); padding: 32px; background: white; border-radius: 16px;
+      box-shadow: 0 12px 35px #20305022; }
+    h1 { margin: 0 0 8px; color: #18243a; }
+    p { color: #65718a; margin: 0 0 24px; }
+    label { display: block; margin: 14px 0 6px; font-weight: 600; color: #26334d; }
+    input { width: 100%; padding: 12px; border: 1px solid #cbd3e1; border-radius: 8px; font-size: 16px; }
+    button { width: 100%; margin-top: 20px; padding: 13px; border: 0; border-radius: 8px;
+      color: white; background: #2457d6; font-size: 16px; font-weight: 700; cursor: pointer; }
+    button:hover { background: #1745b5; }
+    #mensagem { min-height: 24px; margin-top: 18px; font-weight: 700; }
+    .sucesso { color: #16834a; } .erro { color: #c33131; }
+    .hint { margin-top: 18px; font-size: 12px; color: #778198; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Acesso ao sistema</h1>
+    <p>Entre com suas credenciais para continuar.</p>
+    <form id="form-login">
+      <label for="usuario">Usuário</label>
+      <input id="usuario" name="usuario" autocomplete="username" placeholder="Digite seu usuário">
+      <label for="senha">Senha</label>
+      <input id="senha" name="senha" type="password" autocomplete="current-password" placeholder="Digite sua senha">
+      <button id="entrar" type="submit">Entrar</button>
+    </form>
+    <div id="mensagem" role="status" aria-live="polite"></div>
+    <div class="hint">Credenciais para demonstração: admin / 123456</div>
+  </main>
+  <script>
+    document.getElementById("form-login").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const usuario = document.getElementById("usuario").value.trim();
+      const senha = document.getElementById("senha").value;
+      const mensagem = document.getElementById("mensagem");
+      if (usuario === "admin" && senha === "123456") {
+        mensagem.textContent = "Login realizado com sucesso";
+        mensagem.className = "sucesso";
+      } else {
+        mensagem.textContent = "Usuário ou senha inválidos";
+        mensagem.className = "erro";
+      }
+    });
+  </script>
+</body>
+</html>
